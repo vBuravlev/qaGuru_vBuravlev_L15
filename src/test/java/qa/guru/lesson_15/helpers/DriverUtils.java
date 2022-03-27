@@ -32,7 +32,7 @@ public class DriverUtils {
     }
 
     public static URL getVideoUrl(String sessionId) {
-        String videoUrl = Project.config.videoStorage() + sessionId + ".mp4";
+        String videoUrl = Project.webConfig.videoStorage() + sessionId + ".mp4";
         try {
             return new URL(videoUrl);
         } catch (MalformedURLException e) {

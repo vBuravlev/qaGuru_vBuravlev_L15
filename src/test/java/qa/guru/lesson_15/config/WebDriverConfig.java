@@ -2,12 +2,12 @@ package qa.guru.lesson_15.config;
 
 import org.aeonbits.owner.Config;
 
-import java.net.URL;
 
-@Config.Sources({"classpath:${typeProperties}.properties"})
+@Config.Sources({"classpath:lesson_15/${typeProperties}.properties"})
 public interface WebDriverConfig extends Config {
 
     @Key("browserName")
+    @DefaultValue("Chrome")
     String browserName();
 
     @Key("browserVersion")

@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Selenide.sleep;
 
 public class AllureAttachments {
     public static final Logger LOGGER = LoggerFactory.getLogger(AllureAttachments.class);
-    public static int timeoutVideoAttach = Project.config.timeoutVideoAttach();
+    public static int timeoutVideoAttach = Project.webConfig.timeoutVideoAttach();
 
     @Attachment(value = "{attachName}", type = "text/plain")
     private static String addMessage(String attachName, String text) {
@@ -23,7 +23,7 @@ public class AllureAttachments {
     }
 
     public static void addBrowserConsoleLogs() {
-        if (!(Project.config.browserName()).equals("firefox")) {
+        if (!(Project.webConfig.browserName()).equals("firefox")) {
             addMessage("Browser console logs", DriverUtils.getConsoleLogs());
         }
     }
