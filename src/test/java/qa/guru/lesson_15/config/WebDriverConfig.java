@@ -7,21 +7,20 @@ import org.aeonbits.owner.Config;
 public interface WebDriverConfig extends Config {
 
     @Key("browserName")
-    @DefaultValue("Chrome")
+  //  @DefaultValue("Chrome")
     String browserName();
 
     @Key("browserVersion")
     String browserVersion();
+
+    @Key("browserSize")
+    String browserSize();
 
     @Key("remoteUrl")
     String remoteUrl();
 
     @Key("videoStorage")
     String videoStorage();
-
-    @Key("isRemote")
-    @DefaultValue("false")
-    boolean isRemote();
 
     @Key("timeoutVideoAttach")
     int timeoutVideoAttach();

@@ -1,8 +1,8 @@
 package qa.guru.lesson_15.helpers;
 
-import org.aeonbits.owner.ConfigFactory;
 import com.codeborne.selenide.Configuration;
 
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.opera.OperaOptions;
@@ -10,22 +10,22 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import qa.guru.lesson_15.config.Project;
 import qa.guru.lesson_15.config.WebDriverConfig;
 
+
 public class DriverConfig {
 
     public static void configure() {
-    WebDriverConfig webConfig = ConfigFactory.create(WebDriverConfig.class);
 
-    Configuration.browser = webConfig.browserName();
-    Configuration.browserVersion = webConfig.browserVersion();
-    Configuration.timeout = webConfig.timeout();
+    Configuration.browser = Project.webConfig.browserName();
+    Configuration.browserVersion = Project.webConfig.browserVersion();
+    Configuration.browserSize = Project.webConfig.browserSize();
+    Configuration.timeout = Project.webConfig.timeout();
 
     DesiredCapabilities capabilities = new DesiredCapabilities();
     ChromeOptions chromeOptions = new ChromeOptions();
     FirefoxOptions firefoxOptions = new FirefoxOptions();
     OperaOptions operaOptions = new OperaOptions();
 
-
-        switch (Project.webConfig.browserName()) {
+        switch (Configuration.browser) {
         case "chrome":
             chromeOptions.addArguments("--no-sandbox");
             chromeOptions.addArguments("--disable-infobars");
@@ -50,7 +50,7 @@ public class DriverConfig {
         if (Project.isRemoteWebDriver()) {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
-        Configuration.remote = webConfig.remoteUrl();
+        Configuration.remote = Project.webConfig.remoteUrl();
     }
 
     Configuration.browserCapabilities = capabilities;

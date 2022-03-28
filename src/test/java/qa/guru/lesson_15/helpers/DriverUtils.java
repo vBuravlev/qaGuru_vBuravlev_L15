@@ -14,6 +14,7 @@ import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.openqa.selenium.logging.LogType.BROWSER;
+import static qa.guru.lesson_15.config.Project.webConfig;
 
 public class DriverUtils {
 

@@ -3,7 +3,7 @@ package qa.guru.lesson_15.config;
 import org.aeonbits.owner.ConfigFactory;
 
 public class Project {
-    public static WebDriverConfig webConfig = ConfigFactory.create(WebDriverConfig.class);
+    public static WebDriverConfig webConfig = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
 
     public static boolean isRemoteWebDriver() {
         return !webConfig.remoteUrl().equals("");
